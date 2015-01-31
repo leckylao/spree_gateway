@@ -11,6 +11,7 @@ module Spree
     def authorize(money, creditcard, gateway_options)
       p "Money: #{money.inspect}"
       p "Credit Card: #{creditcard.inspect}"
+      p "Credit Card year: #{creditcard.year.to_s[2..3]}"
       p "Gateway options: #{gateway_options.inspect}"
 
       Simplify::Authorization.create({
@@ -21,7 +22,7 @@ module Spree
            "expYear" => creditcard.year.to_s[2..3],
            "cvc" => creditcard.verification_value,
            "number" => creditcard.number
-        },
+        }
         # "reference" => "KP-76TBONES",
         # "currency" => gateway_options[:currency]
       })
