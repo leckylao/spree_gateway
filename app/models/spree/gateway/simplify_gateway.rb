@@ -22,7 +22,7 @@ module Spree
            "cvc" => creditcard.verification_value,
            "number" => creditcard.number
         },
-        "reference" => "KP-76TBONES",
+        # "reference" => "KP-76TBONES",
         "currency" => gateway_options[:currency]
       })
     end
@@ -30,8 +30,8 @@ module Spree
     def purchase(money, creditcard, gateway_options)
       Simplify::Payment.create({
         "amount" => money,
-        "description" => "payment description",
-        "invoice" => "[INVOICE ID]",
+        # "description" => "payment description",
+        # "invoice" => "[INVOICE ID]",
         "card" => {
            "expMonth" => creditcard.month,
            "expYear" => creditcard.year.to_s[2..3],
@@ -44,9 +44,9 @@ module Spree
     def credit(money, creditcard, response_code, gateway_options)
       Simplify::Refund.create({
         "amount" => money,
-        "payment" => "[PAYMENT ID]",
-        "reason" => "Refund Description",
-        "reference" => "76398734634"
+        # "payment" => "[PAYMENT ID]",
+        # "reason" => "Refund Description",
+        # "reference" => "76398734634"
       })
     end
   end
