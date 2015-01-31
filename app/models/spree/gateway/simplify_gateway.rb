@@ -18,11 +18,11 @@ module Spree
         # "description" => "test authorization",
         "card" => {
            "expMonth" => creditcard.month,
-           "expYear" => creditcard.year[2..3],
+           "expYear" => creditcard.year.to_s[2..3],
            "cvc" => creditcard.verification_value,
            "number" => creditcard.number
         },
-        # "reference" => "KP-76TBONES",
+        "reference" => "KP-76TBONES",
         "currency" => gateway_options[:currency]
       })
     end
@@ -34,7 +34,7 @@ module Spree
         "invoice" => "[INVOICE ID]",
         "card" => {
            "expMonth" => creditcard.month,
-           "expYear" => creditcard.year[2..3],
+           "expYear" => creditcard.year.to_s[2..3],
            "cvc" => creditcard.verification_value,
            "number" => creditcard.number
         }
