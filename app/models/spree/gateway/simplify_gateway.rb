@@ -23,7 +23,7 @@ module Spree
            "number" => creditcard.number
         },
         # "reference" => "KP-76TBONES",
-        "currency" => gateway_options[:currency]
+        # "currency" => gateway_options[:currency]
       })
     end
 
