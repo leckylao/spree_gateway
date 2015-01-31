@@ -4,6 +4,10 @@ module Spree
     preference :private_key, :string
     require 'simplify'
 
+    def provider_class
+      Simplify
+    end
+
     def authorize(money, creditcard, gateway_options)
       Simplify::Authorization.create({
         "amount" => money,
