@@ -9,16 +9,20 @@ module Spree
     end
 
     def authorize(money, creditcard, gateway_options)
+      p "Money: #{money.inspect}"
+      p "Credit Card: #{creditcard.inspect}"
+      p "Gateway options: #{gateway_options.inspect}"
+
       Simplify::Authorization.create({
         "amount" => money,
-        "description" => "test authorization",
+        # "description" => "test authorization",
         "card" => {
            "expMonth" => creditcard.month,
            "expYear" => creditcard.year,
            "cvc" => creditcard.verification_value,
            "number" => creditcard.number
         },
-        "reference" => "KP-76TBONES",
+        # "reference" => "KP-76TBONES",
         "currency" => "USD"
       })
     end
