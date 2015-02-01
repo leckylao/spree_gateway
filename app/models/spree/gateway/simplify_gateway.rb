@@ -16,15 +16,16 @@ module Spree
 
       Simplify::Authorization.create({
         "amount" => money,
-        # "description" => "test authorization",
+        "description" => "test authorization",
         "card" => {
            "expMonth" => creditcard.month,
-           "expYear" => creditcard.year.to_s[2..3],
+           # "expYear" => creditcard.year.to_s[2..3],
+           "expYear" => creditcard.year[2..3],
            "cvc" => creditcard.verification_value,
            "number" => creditcard.number
-        }
-        # "reference" => "KP-76TBONES",
-        # "currency" => gateway_options[:currency]
+        },
+        "reference" => "KP-76TBONES",
+        "currency" => gateway_options[:currency]
       })
     end
 
