@@ -18,7 +18,6 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'spree_core', '~> 2.4.0'
-  s.add_dependency 'simplify'
 
   s.add_development_dependency 'braintree'
   s.add_development_dependency 'capybara'
